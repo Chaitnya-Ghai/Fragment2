@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:background="@color/bg"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+<androidx.constraintlayout.widget.Guideline
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    app:layout_constraintGuide_percent=".1"
+    android:id="@+id/h_gd_1"/>
+    <androidx.constraintlayout.widget.Guideline
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent=".3"
+        android:id="@+id/h_gd_3"
+        />
+<Button
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:id="@+id/redBtn"
+    android:text="@string/red"
+    app:layout_constraintTop_toTopOf="@+id/main"
+    app:layout_constraintStart_toStartOf="@+id/main"
+    app:layout_constraintBottom_toBottomOf="@+id/h_gd_1"
+    app:layout_constraintEnd_toStartOf="@+id/greenBtn"
+    app:layout_constraintHorizontal_chainStyle="spread"
+    />
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/greenBtn"
+        android:text="@string/green"
+        app:layout_constraintStart_toEndOf="@+id/redBtn"
+        app:layout_constraintBottom_toBottomOf="@+id/h_gd_1"
+        app:layout_constraintTop_toTopOf="@+id/main"
+        app:layout_constraintEnd_toStartOf="@+id/blueBtn"
+        />
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/blueBtn"
+        android:text="@string/blue"
+        app:layout_constraintEnd_toEndOf="@+id/main"
+        app:layout_constraintTop_toTopOf="@+id/main"
+        app:layout_constraintBottom_toBottomOf="@id/h_gd_1"
+        app:layout_constraintStart_toEndOf="@+id/greenBtn"/>
+
+<EditText
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:inputType="number"
+    android:id="@+id/etMain"
+    app:layout_constraintTop_toBottomOf="@+id/h_gd_1"
+    app:layout_constraintBottom_toTopOf="@+id/PassBtnFromActivity"
+    app:layout_constraintStart_toStartOf="@+id/main"
+    android:hint="@string/enter_value"
+    />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/PassBtnFromActivity"
+        android:text="@string/pass"
+        app:layout_constraintTop_toBottomOf="@+id/etMain"
+        app:layout_constraintStart_toStartOf="@+id/main"
+        app:layout_constraintBottom_toTopOf="@+id/h_gd_3"
+        app:layout_constraintEnd_toStartOf="@+id/counterBox"
+        app:layout_constraintHorizontal_chainStyle="spread_inside"/>
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/counterBox"
+        app:layout_constraintEnd_toEndOf="@+id/main"
+        app:layout_constraintTop_toBottomOf="@+id/etMain"
+        app:layout_constraintBottom_toTopOf="@+id/h_gd_3"
+        app:layout_constraintStart_toEndOf="@+id/PassBtnFromActivity">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:text="@string/counter"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:id="@+id/counterValue"
+            android:text="@string/value"
+         />
+    </LinearLayout>
+
+<androidx.fragment.app.FragmentContainerView
+    android:layout_width="match_parent"
+    android:layout_height="0dp"
+    app:layout_constraintTop_toTopOf="@+id/h_gd_3"
+    app:layout_constraintStart_toStartOf="@+id/main"
+    app:layout_constraintEnd_toEndOf="@+id/main"
+    app:layout_constraintBottom_toBottomOf="@+id/main"
+    android:id="@+id/fragment_container_view1"
+    android:layout_margin="8dp"
+    android:name="cg.tutorials.example.fragment2.FragmentAssignment.First_Fragment"
+    />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
